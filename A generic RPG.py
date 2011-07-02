@@ -1,14 +1,151 @@
 import random
 
-ARMORS = ("cloth", "leather", "copper", "bronze", "iron", "steel",
-          "silver-gold alloy thingy", "quartz plated", "ruby plated",
-          "diamond plated")
-WIZ_HATS = ("black", "blue", "green", "yellow", "red",
-            "rainbow", "enchanted", "blessed", "iridescent", "minnesota twins cap")
 PHYS_WEAPONS = ("dagger", "broadsword", "claymore", "longsword", "scimitar",
                 "bludgeon", "mace", "flail", "battle ax", "zweihander")
 MAG_WEAPONS = ("plastic wand", "walking stick", "enchanted wand", "staff", "Tizona",
                "Kusanagi", "Gungnir", "Excalibur", "Andúril", "elder wand")
+
+#this will likely replace both phys defense and mag def; if this seems to work, then
+#I will implement a weapons class and probably a spells class.
+class Armors():
+    #this part does the phys defense
+    def phys_armors(self, defense_level):
+        defense_level * 5 = phys_def
+        return phys_def
+
+    def nothing():
+        phys_def = self.phys_armors(0)
+        stats = [phys_def, 0]
+        return stats
+    
+    def cloth():
+        phys_def = self.phys_armors(1)
+        stats = [phys_def, 0]
+        return stats
+    
+    def copper():
+        phys_def = self.phys_armors(2)
+        stats = [phys_def, 0]
+        return stats
+        
+    def bronze():
+        phys_def = self.phys_armors(3)
+        stats = [phys_def, 0]
+        return stats
+    
+    def iron():
+        phys_def = self.phys_armors(4)
+        stats = [phys_def, 0]
+        return stats
+    
+    def steel():
+        phys_def = self.phys_armors(5)
+        stats = [phys_def, 0]
+        return stats
+    
+    def alloy():
+        phys_def = self.phys_armors(6)
+        stats = [phys_def, 0]
+        return stats
+    
+    def bulletproof():
+        phys_def = self.phys_armors(7)
+        stats = [phys_def, 0]
+        return stats
+    
+    def quartz():
+        phys_def = self.phys_armors(8)
+        stats = [phys_def, 0]
+        return stats
+    
+    def ruby():
+        phys_def = self.phys_armors(9)
+        stats = [phys_def, 0]
+        return stats
+    
+    def diamond():
+        phys_def = self.phys_armors(10)
+        stats = [phys_def, 0]
+        return stats
+
+#now for the magic stuff
+    def mag_armors(self, defense_level):
+        mag_def = 5 * defense_level
+        return mag_def
+
+WIZ_HATS = ("black", "blue", "green", "yellow", "red",
+            "rainbow", "enchanted", "blessed", "iridescent", "minnesota twins cap")
+    def bath_robe():
+        mag_def = mag_armors(1)
+        stats = [0, mag_def]
+        return stats
+
+    def yellow_robe():
+        mag_def = mag_armors(2)
+        stats = [0, mag_def]
+        return stats
+
+    def orange_robe():
+        mag_def = mag_armors(3)
+        stats = [0, mag_def]
+        return stats
+
+    def blue_robe():
+        mag_def = mag_armors(4)
+        stats = [0, mag_def]
+        return stats
+
+    def purple_robe():
+        mag_def = mag_armors(5)
+        stats = [0, mag_def]
+        return stats
+
+    def brown_robe():
+        mag_def = mag_armors(6)
+        stats = [0, mag_def]
+        return stats
+
+    def black_robe():
+        mag_def = mag_armors(7)
+        stats = [0, mag_def]
+        return stats
+
+    def enchanted_robe():
+        mag_def = mag_armors(8)
+        stats = [0, mag_def]
+        return stats
+
+    def blessed_robe():
+        mag_def = mag_armors(9)
+        stats = [0, mag_def]
+        return stats
+
+    def iridescent_robe():
+        mag_def = mag_armors(10)
+        stats = [0, mag_def]
+        return stats
+
+#special armors
+
+    def balanced():
+        phys_def = phys_armors(3)
+        mag_def = mag_armors(3)
+        stats = [phys_def, mag_def]
+
+    def trollface():
+        phys_def = phys_armors(7)
+        mag_def = mag_armors(2)
+        stats = [phys_def, mag_def]
+
+    def counter_troll():
+        phys_def = phys_armors(2)
+        mag_def = mag_armors(7)
+        stats = [phys_def, mag_def]
+
+    def suicidal():
+        phys_def = phys_armors(-10)
+        mag_def = mag_armors(-10)
+        stats = [phys_def, mag_def]
 
 class Enemy(object):
     """A class for any non-boss enemy"""
@@ -35,8 +172,8 @@ class Enemy(object):
         health_points = health*20+100
         return health_points
 #reduces physical damage by up to 50%, based on armor. NOTE: it would be better
-    #if I could figure out how to return "0" for the first thing in the list, etc.
-    #it'll be kinda awkward syntax with invisible inventories and such...:(
+#if I could figure out how to return "0" for the first thing in the list, etc.
+#it'll be kinda awkward syntax with invisible inventories and such...:(
     def physical_defense(self, inventory):
         phys_def = 0
         for i in ARMORS:
